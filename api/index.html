@@ -59,6 +59,9 @@
     
     
       
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140392573-1"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-140392573-1")</script>
+      
     
     
   </head>
@@ -192,9 +195,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API
+      </label>
+    
     <a href="./" title="API" class="md-nav__link md-nav__link--active">
       API
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects" title="Projects" class="md-nav__link">
+    Projects
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -216,6 +255,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects" title="Projects" class="md-nav__link">
+    Projects
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -230,6 +292,7 @@
                 <h1 id="programmatically-retrieve-mpcontribs-data">Programmatically retrieve MPContribs Data</h1>
 <p>Use <a href="https://bravado.readthedocs.io">bravado</a> as python client
 (see <a href="https://api.mpcontribs.org">API Docs</a> for details about available operations):</p>
+<h2 id="setup">Setup</h2>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">bravado.requests_client</span> <span class="kn">import</span> <span class="n">RequestsClient</span>
 <span class="kn">from</span> <span class="nn">bravado.client</span> <span class="kn">import</span> <span class="n">SwaggerClient</span>
 
@@ -244,21 +307,27 @@
                                <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;validate_responses&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
 
 <span class="nb">dir</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="c1"># available resources</span>
-<span class="nb">dir</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">provenances</span><span class="p">)</span> <span class="c1"># operations available on resource</span>
-<span class="n">provs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">provenances</span> <span class="c1"># shortcut</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="p">)</span> <span class="c1"># operations available on resource</span>
+</pre></div>
 
-<span class="c1"># get provenance for all available projects/datasets</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">provs</span><span class="o">.</span><span class="n">get_provenances</span><span class="p">()</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
-<span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">project</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">result</span><span class="p">]</span> <span class="c1"># r.authors/title</span>
+
+<h2 id="projects">Projects</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># retrieve list of all available projects/datasets</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entries</span><span class="p">()</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
+<span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">project</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">result</span><span class="p">]</span> <span class="c1"># or r.title</span>
 <span class="k">print</span><span class="p">(</span><span class="n">projects</span><span class="p">)</span>
 
-<span class="c1"># search provenance entries for keywords</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">provs</span><span class="o">.</span><span class="n">get_provenances</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s1">&#39;bandgap values&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
+<span class="c1"># search projects for keywords</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entries</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s1">&#39;bandgap values&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
 <span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">project</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">result</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">projects</span><span class="p">)</span>
 
-<span class="c1"># get provenance for a specific project/dataset</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">provs</span><span class="o">.</span><span class="n">get_provenances_project</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
+<span class="c1"># use mask to control which fields to retrieve</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entries</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;authors&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authors&#39;</span><span class="p">])</span>
+
+<span class="c1"># get info about specific project/dataset</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entry</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">authors</span><span class="p">)</span>
 </pre></div>
                 
