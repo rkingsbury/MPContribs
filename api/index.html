@@ -582,6 +582,24 @@ response via <code>response()</code> and <code>result</code>, respectively:</p>
 <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entries</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;authors&#39;</span><span class="p">])</span>
 </pre></div>
 
+<div class="admonition example">
+<p class="admonition-title">Example Response</p>
+<div class="codehilite"><pre><span></span><span class="p">[{</span>
+    <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;dtu&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;GLLB-SC Bandgaps&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="s1">&#39;I. Castelli, F. Hueser, M. Pandey, H. Li, K. Thygesen, B. Seger&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Bandgaps calculated using GLLB-SC potential ...&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;urls&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;main&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1002/aenm.201400915&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PRA&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1103/PhysRevA.51.1944&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PRB&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1103/PhysRevB.82.115106&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;5cdb2591f72fc8ea319bc76f&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;other&#39;</span><span class="p">:</span> <span class="bp">None</span>
+<span class="p">},</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+
+</div>
 <h4 id="entry">Entry<a class="headerlink" href="#entry" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="c1"># get info about specific project/dataset</span>
 <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entry</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">)</span>
@@ -590,8 +608,90 @@ response via <code>response()</code> and <code>result</code>, respectively:</p>
 <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_entry</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
 </pre></div>
 
+<div class="admonition example">
+<p class="admonition-title">Example Response</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;GLLB-SC Bandgaps&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="s1">&#39;I. Castelli, F. Hueser, M. Pandey, H. Li, K. Thygesen, B. Seger&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Bandgaps calculated using GLLB-SC potential ...&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;urls&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;main&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1002/aenm.201400915&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PRA&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1103/PhysRevA.51.1944&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PRB&#39;</span><span class="p">:</span> <span class="s1">&#39;https://doi.org/10.1103/PhysRevB.82.115106&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;5cdb2591f72fc8ea319bc76f&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
 <h4 id="table">Table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># retrieve a paginated table of contributions for a project</span>
+<span class="c1"># - unit will automatically be added to column name</span>
+<span class="c1"># - columns with URLs to Material and Contribution Detail Pages always included</span>
+<span class="c1"># - will also include formula column if present in contribution</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">)</span>
+
+<span class="c1"># set columns to include in table (use dot notation for nested fields)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ICSD&#39;</span><span class="p">,</span> <span class="s1">&#39;ΔE-QP.indirect&#39;</span><span class="p">])</span>
+
+<span class="c1"># change number of rows returned per page and retrieve a specific page</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">per_page</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># search sub-string in formula or identifier (`mp-id`/composition)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;Cu3&#39;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;mp-27&#39;</span><span class="p">)</span>
+
+<span class="c1"># set field to sort by and its order</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;dtu&#39;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;ΔE-QP.indirect&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;asc&#39;</span><span class="p">)</span>
+</pre></div>
+
+<div class="admonition example">
+<p class="admonition-title">Example Response</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;total_count&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;last_page&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s1">&#39;per_page&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s1">&#39;identifier&#39;</span><span class="p">:</span> <span class="s1">&#39;https://materialsproject.org/materials/mp-553303&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;https://portal.mpcontribs.org/explorer/5abd8f77d4f144494f2cecbb&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;CsCu3O2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ICSD&#39;</span><span class="p">:</span> <span class="s1">&#39;413342&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ΔE-QP.indirect [eV]&#39;</span><span class="p">:</span> <span class="s1">&#39;3.04&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s1">&#39;identifier&#39;</span><span class="p">:</span> <span class="s1">&#39;https://materialsproject.org/materials/mp-7439&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;https://portal.mpcontribs.org/explorer/5abd8f78d4f144494f2cecc1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;Cu3K3P2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ICSD&#39;</span><span class="p">:</span> <span class="s1">&#39;12163&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ΔE-QP.indirect [eV]&#39;</span><span class="p">:</span> <span class="s1">&#39;3.11&#39;</span>
+    <span class="p">},</span> <span class="o">...</span><span class="p">]}</span>
+</pre></div>
+
+</div>
 <h4 id="graph">Graph<a class="headerlink" href="#graph" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># retrieve overview graph for a project</span>
+<span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;dtu&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;ΔE-QP.indirect&#39;</span><span class="p">,</span> <span class="s1">&#39;ΔE-QP.direct&#39;</span><span class="p">])</span>
+</pre></div>
+
+<div class="admonition example">
+<p class="admonition-title">Example Response</p>
+<div class="codehilite"><pre><span></span><span class="p">[{</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mp-1000&#39;</span><span class="p">,</span> <span class="s1">&#39;mp-10086&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1.18&#39;</span><span class="p">,</span> <span class="s1">&#39;0.856&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;5abd8f7bd4f144494f2cece2&#39;</span><span class="p">,</span> <span class="s1">&#39;5abd901ad4f144494f2cf2f3&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mp-1000&#39;</span><span class="p">,</span> <span class="s1">&#39;mp-10086&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;3.37&#39;</span><span class="p">,</span> <span class="s1">&#39;2.97&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;5abd8f7bd4f144494f2cece2&#39;</span><span class="p">,</span> <span class="s1">&#39;5abd901ad4f144494f2cf2f3&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="p">},</span> <span class="p">{</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mp-1000&#39;</span><span class="p">,</span> <span class="s1">&#39;mp-10086&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;3.71&#39;</span><span class="p">,</span> <span class="s1">&#39;2.97&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;5abd8f7bd4f144494f2cece2&#39;</span><span class="p">,</span> <span class="s1">&#39;5abd901ad4f144494f2cf2f3&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="p">}]</span>
+</pre></div>
+
+</div>
 <h2 id="contributions">Contributions<a class="headerlink" href="#contributions" title="Permanent link">&para;</a></h2>
 <h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2>
 <h2 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">&para;</a></h2>
