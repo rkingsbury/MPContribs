@@ -11,17 +11,7 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://mpcontribs.org/portal/explorer/</loc>
-     <lastmod>2019-06-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://mpcontribs.org/portal/detail_pages/</loc>
-     <lastmod>2019-06-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://mpcontribs.org/portal/landing_pages/</loc>
+     <loc>https://mpcontribs.org/portal/</loc>
      <lastmod>2019-06-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
