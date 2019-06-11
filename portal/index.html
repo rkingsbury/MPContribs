@@ -405,7 +405,8 @@
 <p>The MPContribs <a href="https://portal.mpcontribs.org">Portal</a> contains an entry for every
 contributed dataset which links to the respective landing pages. Each entry also includes
 the project title, its authors, and a small preview icon. Project description and author
-list can be search for keywords to reduce the list of displayed entries. Browsing
+list can be search for keywords to reduce the list of displayed entries. Each
+project/dataset can contain many contributions for an MP material or composition. Browsing
 contributions across datasets/projects as well as materials can be done with the
 <a href="#contribution-cards-explorer">Contribution Cards Explorer</a>. The key to authenticate
 against the MPContribs <a href="/api">API</a> is shown on the user's dashboard.</p>
@@ -462,10 +463,24 @@ mechanisms and click events to link data points to their according contribution 
 pages. An example can be found
 <a href="https://github.com/materialsproject/MPContribs/blob/master/mpcontribs-users/mpcontribs/users/dtu/explorer/assets/index.js">here</a>.</p>
 <h2 id="contribution-detail-pages">Contribution Detail Pages<a class="headerlink" href="#contribution-detail-pages" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Coming soon.</p>
-</div>
+<p><img alt="Screenshot" src="../detail_page.png" /></p>
+<p>Each contribution in a dataset is assigned a unique identifier (see MongoDB
+<a href="https://docs.mongodb.com/manual/reference/method/ObjectId/">ObjectId</a>) which can be used
+to access its <em>Contribution Details Page</em> rendering an interactive version of its full
+content. For instance, the above screenshot is a truncated version of the detail page at</p>
+<p><a href="https://portal.mpcontribs.org/explorer/5ac08be3d4f144332ce7b785">https://portal.mpcontribs.org/explorer/5ac08be3d4f144332ce7b785</a></p>
+<p>A contribution consists of three (optional) components: free-form hierarchical data,
+tabular data, and crystal structures. The detail page is a static version of a fully
+functional <a href="https://jupyter.org/">Jupyter</a> notebook using the MPContribs <a href="https://pypi.org/project/mpcontribs-client/">API
+Client</a> and
+<a href="https://pypi.org/project/mpcontribs-io/">I/O</a> python libraries. It contains code showing
+how to interact with a contribution programmatically along with the resulting output. The
+navigation bar at the top provides links to jump to a respective component, toggle buttons
+to show/hide components, and a download button to retrieve the contribution in JSON
+format.</p>
+<p>Launch the Binder project below to explore example notebooks using the MPContribs API
+Client and I/O libraries.</p>
+<p><a href="https://mybinder.org/v2/gh/materialsproject/MPContribs/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="footnote">
 <hr />
 <ol>
