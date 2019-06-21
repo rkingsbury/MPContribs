@@ -1,0 +1,928 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Contributed MP Materials Data">
+      
+      
+        <link rel="canonical" href="https://mpcontribs.org/redox_thermo_csp/">
+      
+      
+        <meta name="author" content="Patrick Huck">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>RedoxThermoCSP - MPContribs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.572ca0f0.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140392573-1"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-140392573-1")</script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#redoxthermocsp" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://mpcontribs.org" title="MPContribs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                MPContribs
+              </span>
+              <span class="md-header-nav__topic">
+                RedoxThermoCSP
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/materialsproject/MPContribs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      materialsproject/MPContribs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://mpcontribs.org" title="MPContribs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    MPContribs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/materialsproject/MPContribs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      materialsproject/MPContribs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../portal/" title="Portal" class="md-nav__link">
+      Portal
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Landing Pages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Landing Pages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        RedoxThermoCSP
+      </label>
+    
+    <a href="./" title="RedoxThermoCSP" class="md-nav__link md-nav__link--active">
+      RedoxThermoCSP
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-thermodynamic-data" title="Generating thermodynamic data" class="md-nav__link">
+    Generating thermodynamic data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experimental-data" title="Experimental data" class="md-nav__link">
+    Experimental data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theoretical-data" title="Theoretical data" class="md-nav__link">
+    Theoretical data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-isographs-tool" title="Using the Isographs tool" class="md-nav__link">
+    Using the Isographs tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-energy-analysis-tool" title="Using the Energy Analysis tool" class="md-nav__link">
+    Using the Energy Analysis tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-results-for-materials-selection" title="Using the results for materials selection" class="md-nav__link">
+    Using the results for materials selection
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ingester/" title="Ingester" class="md-nav__link">
+      Ingester
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-thermodynamic-data" title="Generating thermodynamic data" class="md-nav__link">
+    Generating thermodynamic data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experimental-data" title="Experimental data" class="md-nav__link">
+    Experimental data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theoretical-data" title="Theoretical data" class="md-nav__link">
+    Theoretical data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-isographs-tool" title="Using the Isographs tool" class="md-nav__link">
+    Using the Isographs tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-energy-analysis-tool" title="Using the Energy Analysis tool" class="md-nav__link">
+    Using the Energy Analysis tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-results-for-materials-selection" title="Using the results for materials selection" class="md-nav__link">
+    Using the results for materials selection
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/materialsproject/MPContribs/edit/master/docs/redox_thermo_csp/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="redoxthermocsp">RedoxThermoCSP<a class="headerlink" href="#redoxthermocsp" title="Permanent link">&para;</a></h1>
+<p>Documentation for the <code>RedoxThermoCSP</code> <a href="https://portal.mpcontribs.org/redox_thermo_csp/">landing
+page</a>.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>RedoxThermoCSP is a set of tools to calculate <strong>thermodynamic properties of perovskites</strong>
+AMO<sub>3-δ</sub>. Depending on the temperature and oxygen partial pressure, many of these
+perovskites show an oxygen non-stoichiometry expressed by <em>δ</em>. Moreover, the composition
+of these perovskites can be tuned over a large range of different elements, allowing to
+tune their thermodynamic properties. For these reasons, those materials are ideally
+suitable as redox materials in two-step thermochemical redox cycles (see Fig. 1).  In a
+first step, the materials are reduced at high temperature and/or low oxygen partial
+pressure under the release of oxygen. The heat for the reduction can be supplied through
+concentrated solar power (CSP). In a second step, the materials are re-oxidized in air,
+or, if thermodynamically possible, in steam, or CO<sub>2</sub>. By this means, these
+perovskites may be used for two-step thermochemical oxygen storage, pumping, or air
+separation.  Moreover, some of them can be used for water splitting or CO<sub>2</sub>
+splitting, allowing the generation of solar fuels. Our approach is based upon creating
+<strong>solid solutions of perovskites</strong> to tune their thermodynamic properties. These solid
+solutions, denoted by  </p>
+<p>(A</sup>'</sup><sub>x</sub>A</sup>''</sup><sub>1-x</sub>)<sup>(6-n)+</sup>(M</sup>'</sup><sub>y</sub>M</sup>''</sup><sub>1-y</sub>)<sup>(n-2δ)+</sup>O<sub>3-δ</sub></p>
+<p>with n = 3, 4, 5 are defined by varying the content of the transition metals M while
+maintaining a fixed Goldschmidt tolerance factor by varying the content of A site metals.</p>
+<p>The theoretical data is based on DFT calculations performed within the infrastructure of
+<a href="https://www.materialsproject.org">The Materials Project</a> based on
+<a href="https://www.vasp.at">VASP</a>. Part of our data is gathered using
+<a href="http://pymatgen.org">pymatgen</a> and
+<a href="https://materialsproject.github.io/fireworks/">FireWorks</a>. Reaction enthalpies were
+calculated using pymatgen's <a href="https://materialsproject.org/docs/rxncalculator">reaction
+calculator</a>. If you use our tool, please
+cite the respective publications<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. Although carefully researched, we assume no liability
+for the accuracy of the data.</p>
+<p><img alt="Figure 1" src="Fig_1.png" /></p>
+<p><strong>Fig. 1:</strong> Two-step thermochemical cycles based on perovskites AMO<sub>3-δ</sub> with a
+reduction step at high temperature and/or low oxygen partial pressure, followed by
+re-oxidation at lower temperature and/or lower partial pressure<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>.</p>
+<h2 id="generating-thermodynamic-data">Generating thermodynamic data<a class="headerlink" href="#generating-thermodynamic-data" title="Permanent link">&para;</a></h2>
+<h3 id="experimental-data">Experimental data<a class="headerlink" href="#experimental-data" title="Permanent link">&para;</a></h3>
+<p>The experimental thermodynamic data has been acquired in <strong>thermogravimetric experiments</strong>
+using the <strong>van't Hoff approach</strong>.  Powdered samples (100-300 mg) are subjected to
+different atmospheres at different temperature levels (≈400-1300 °C) in a thermobalance.
+Oxygen partial pressures p<sub>O2</sub> between ≈10<sup>-4</sup> bar and 0.9 bar are set
+using a mixture of O<sub>2</sub>, Ar, and synthetic air in different flow rates. From
+equilibrium data of the mass change Δm induced by oxygen release or uptake, we retreived
+the change in redox enthalpy as a function of the oxygen non-stoichiometry ΔH(δ) and the
+respective change in entropy ΔS(δ).  This data is available by opening the materials
+details pages by clicking on a contribution identifier in the table of materials data. The
+experimental thermodynamic data is fit using an empirical model. This allows interpolating
+between the measured data points and, to some extent, extrapolations.  Our approach allows
+modelling the <strong>thermodynamics of perovskite solid solutions</strong>.  Take a solid solution
+like Ca<sub>0.5</sub>Sr<sub>0.5</sub>Fe<sub>0.5</sub>Mn<sub>0.5</sub>O<sub>3-δ</sub> for
+example. According to DFT data, the <b>redox enthalpy ΔH</b> of SrMnO<sub>3-δ</sub> or
+CaMnO<sub>3-δ</sub> is signifiantly larger than the redox enthalpies of
+SrFeO<sub>3-δ</sub> or CaFeO<sub>3-δ</sub>. As the Fe<sup>4+</sup> ions in this
+perovskites are typically reduced more readily than the Mn<sup>4+</sup> ions, the redox
+enthalpy for low values of δ is typically lower than for high values of δ<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>. In our
+model, this behavior is represented by determining a lower limit of ΔH (dH<sub>min</sub>)
+for δ → 0 and a higher limit of ΔH (dH<sub>max</sub>) for δ → 0.5, with an arctangent
+function describing the gradual increase of ΔH as a function of δ between these limits.</p>
+<p>The <strong>change in entropy ΔS</strong> for a perovskite can be modeled assuming dilute species<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>.
+We use this model by assuming two independent sub-lattices in a solid solution containing
+the two different redox-active species, of which the one with the less redox-active
+species only contributes significantly for high values of δ.</p>
+<p>The mass change Δm of perovskites was measured vs. a reference point at
+p<sub>O2</sub>=0.18 bar and T=400 °C. Therefore, the change in non-stoichiometry is only
+measured relative to this reference point as a value of Δδ. To obtain the absolute δ
+values, we determined the δ at the reference point, denoted by δ<sub>0</sub> (δ = Δδ +
+δ<sub>0</sub>). This has been done by using the dilute species model and substituing δ for
+Δδ + δ<sub>0</sub>, which allows obtaining δ<sub>0</sub> as one of the fit parameters.
+This method can be inaccurate, therefore, some experimental datasets are shifted in
+direction of δ, such as the dataset for
+Ca<sub>0.15</sub>Sr<sub>0.85</sub>Mn<sub>0.2</sub>Fe<sub>0.8</sub>O<sub>3-δ</sub>. All
+thermodynamic properties are given per mol of O.</p>
+<p>Our set of experimental thermodynamic data consists of <strong>24 materials</strong>, which are
+solid solutions of perovskites with fixed tolerance factor w.r.t. the fully oxidized
+state. Some datasets contain only small ranges of δ, which is due to the constraints in
+redox conditions we can achieve in the thermobalance. For instance, Co-substituted
+SrFeO<sub>3-δ</sub> perovskites could only be measured at very high δ values, as they
+cannot be oxidized further under ambient oxygen pressure and decompose as soon as δ &gt; ≈0.5
+at temperatures above 600-700 °C.</p>
+<p>Details on our empirical model, the redox behavior of perovskite solid solutions, and our
+measurement approach can be found in <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> and <sup id="fnref2:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
+<h3 id="theoretical-data">Theoretical data<a class="headerlink" href="#theoretical-data" title="Permanent link">&para;</a></h3>
+<p>The crystal structures of SrFeO<sub>3</sub> (perovskite, cubic unit cell, space group 221)
+and Sr<sub>2</sub>Fe<sub>2</sub>O<sub>5</sub> (brownmillerite, orthorhombic, space group
+46) are used as prototypes for the perovskite solid solutions. To allow solid solutions
+with integer occupancies, 2x2x2 supercells are created from these prototypes and
+occupancies are rounded to fractions of &#8539;, leading to a maximum of 144 atoms per unit
+cell for the brownmillerites. The most stable distribution of species in the solid
+solution is found by minimizing the Ewald sum. GGA and GGA+<i>U</i> calculations are
+combined according to <a href="https://doi.org/10.1103/PhysRevB.84.045115">Jain et.
+al.</a> The redox enthalpy for a complete reduction from perovskite (δ=0) to
+brownmillerite (δ=0.5) under the release of oxygen is calculated using the reaction
+calculator in pymatgen and normalized per mol of O.<br> Based on these values, the gradual
+increase of redox <b>enthalpies</b> with increasing δ in solid solutions is modelled by
+assuming two independent sub-lattices, accounting for the two species with different
+reducibility. The redox enthalpies of the solid solution endmembers serve as boundaries
+for the minimum and maximum redox enthalpies, and ΔH(δ,T) is determined by first
+calculating the equilibrium p<sub>O2</sub>(δ,T) based on the non-stoichiometries of the
+individual sub-lattices, which is then used to calculate ΔH(δ,T) as a numerical derivative
+of the oxygen partial pressure vs. the temperature.</p>
+<p>The <b>entropy</b> of the solid solutions is calculated as the sum of three
+constituents:<br> <center>ΔS(δ,T) = S<sub>0,O2</sub>(T) + Δs<sub>vib</sub>(T) +
+Δs<sub>conf</sub>(δ,T)</center><br> S<sub>0, O2</sub>(T) refers to the partial molar
+entropy of oxygen, which can be determined by using the <a
+href="https://janaf.nist.gov/">NIST-JANAF thermochemical tables</a> and the Shomate
+equation. Δs<sub>conf</sub>(δ,T) describes the configurational entropy, which can be
+calculated using the dilute species model for both sub-lattices, and Δs<sub>vib</sub>(T)
+is the vibrational entropy, which can be determined using the Debye model from the Debye
+temperatures.  The Debye temperatures are calculated from the elastic tensors, which are
+determined using <a href="http://dx.doi.org/10.1038/sdata.2015.9">DFT data</a>. Elastic
+tensors are not available for some materials, in which case the data for
+SrFeO<sub>3-δ</sub> is used instead as an approximation. As the vibrational entropy is
+usually the smallest of the three contributions to the total entropy change, the error
+introduced by doing so is small. The set of elastic tensors in The Materials Project is
+continuously extended, which will eventually allow to get more accurate data for more and
+more materials.</p>
+<p>Our set of theoretical thermodynamic data consists of <strong>&gt; 240 perovskite/brownmillerite
+redox pairs</strong>, many of them solid solutions with fixed tolerance factor. Pure ternary
+compounds, such as EuFeO<sub>3-δ</sub> or BaMnO<sub>3-δ</sub> are also included,
+irrespective of their predicted stability according to the tolerance factor. All materials
+used in our contribution are accessible through The Materials Project, where additional
+data can be found, such as the predicted thermodynamic stability which is related to the
+energy above hull. The dataset also includes perovskites which are likely to be highly
+unstable under the conditions conceivable in practical application, such as
+MgCoO<sub>3-δ</sub>, NaVO<sub>3-δ</sub>, or SrCuO<sub>3-δ</sub>.</p>
+<p>Details on our theoretical approach to modelling the thermodynamic data of perovskite
+solid solutions are given in <sup id="fnref3:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.</p>
+<h2 id="using-the-isographs-tool">Using the Isographs tool<a class="headerlink" href="#using-the-isographs-tool" title="Permanent link">&para;</a></h2>
+<p>A list of available materials is available on the bottom of the page. This list can be
+filtered by entering elements or the composition in the search bar:</p>
+<p><img alt="filtering entries" src="Fig_2.png" /></p>
+<p>By clicking on one of the rows, the corresponding "Isographs" are displayed above.
+Theoretical data is shown in <font color="red">red</font>, and experimental data (if
+available) is shown in <font color="blue">blue</font>. Interpolated experimental data is
+shown as solid line, whereas extrapolated experimental data is displayed as dashed line to
+indicate its potential inaccuracy. Please note: As described above, the experimental data
+can be shifted significantly in δ direction w.r.t. the theoretical data - this has
+typically no big impact on the relative changes in non-stoichiometry.</p>
+<p>The Isographs tool includes the following 6 plots:</p>
+<ul>
+<li><strong>Isotherm:</strong> Shows the non-stoichiometry δ as a function of the oxygen partial pressure
+    p<sub>O2</sub> (in bar) with fixed temperature T (in K)</li>
+<li><strong>Isobar:</strong> Shows the non-stoichiometry δ as a function of the temperature T (in K) with
+    fixed oxygen partial pressure p<sub>O2</sub> (in bar)</li>
+<li><strong>Isoredox:</strong> Shows the oxygen partial pressure p<sub>O2</sub> (in bar) as a function of
+    the temperature T (in K) with fixed non-stoichiometry δ</li>
+<li><strong>Enthalpy (dH):</strong> Shows the redox enthalpy ΔH as a function of the non-stoichiometry δ.
+    Please note: The experimental dataset only contains values of ΔH(δ) instead of ΔH(δ,T)
+    due to the measurement method. The fixed temperature value T therefore only refers to
+    the theoretical data.</li>
+<li><strong>Entropy (dS):</strong> Shows the redox entropy ΔS as a function of the non-stoichiometry δ.
+    Please note: The experimental dataset only contains values of ΔS(δ) instead of ΔS(δ,T)
+    due to the measurement method. The fixed temperature value T therefore only refers to
+    the theoretical data.</li>
+<li><strong>Ellingham diagram:</strong> Shows ΔG<sup>0</sup> as a function of the temperature T (in K)
+    with fixed non-stoichiometry δ. The <font color="gray">gray</font> isobar line can be
+    adjusted to account for different oxygen partial pressures according to
+    ΔG(p<sub>O2</sub>) = ΔG<sup>0</sup> - &frac12; * RT * ln(p<sub>O2</sub>). If ΔG<sup>0</sup>
+    is below the isobar line, the reduction occurs spontaneously.</li>
+</ul>
+<p>The graphs are interactive. Upon change of the fixed temperature or pressure values on the
+sliders above the graphs, the plot will be updated automatically. Moreover, the data can
+be zoomed in by selecting an area in the graph with the mouse, and zoomed out by double
+clicking on the graph. All graphs are based on <a href="https://plot.ly/">plotly</a>.
+Plotly allows downloading the plots as .png files and editing graphs online:</p>
+<p><img alt="downloading graphs" src="Fig_3.png" /></p>
+<h2 id="using-the-energy-analysis-tool">Using the Energy Analysis tool<a class="headerlink" href="#using-the-energy-analysis-tool" title="Permanent link">&para;</a></h2>
+<p>The Energy Analysis tool is a powerful means to find the ideal redox material for a
+specific application. It returns a ranked list of suitable materials visualized as an
+interactive bar graph. The energy input is given as heat input per complete redox cycle
+(reduction + oxidation step).</p>
+<p>The energy input neccessary to operate a certain redox cycle consitutes of the following
+elements:</p>
+<ul>
+<li><strong>Chemical Energy:</strong> The chemical energy is defined by the redox enthalpy and is
+    calculated as the integral over ΔH(δ) from δ<sub>ox</sub> to δ<sub>red</sub>. It is
+    inversely proportional to the heat recovery efficiency &#x03B7;<sub>hrec, solid</sub>,
+    as a more efficient heat recovery system allows for a larger fraction of the redox
+    material to be re-heated by the waste heat from the previous cycle.</li>
+<li><strong>Sensible Energy:</strong> The chemical energy is defined by the heat capacity and is
+    calculated using the Debye model based on the elastic tensors of the materials (see
+    above). Due to the relatively small changes in oxygen content of many perovskites upon
+    reduction, this typically constitutes the largest share of energy consumption per mol
+    of product. Please note that the experimental dataset does not contain heat capacity
+    data, so the sensible energy is always based on theoretical considerations. The heat
+    recovery efficiency &#x03B7;<sub>hrec, solid</sub> has an analogous effect on the
+    amount of sensible energy required per redox cycle as for the chemical energy.</li>
+<li><strong>Pumping Energy:</strong> This refers to the energy required to pump the oxygen released
+    during reduction out of the reactor chamber. It is independent of the reduction
+    temperature or any oxidation conditions. No heat recovery from pumping is assumed. It
+    is possible to either define a fixed value of pumping energy in terms of kJ/kg of
+    redox material, or use the mechanical envelope function defined by <a
+    href="https://www.sciencedirect.com/science/article/pii/S0038092X16305552">Brendelberger
+    et. al</a>. The latter refers to the minimum energy required to pump a certain amount
+    of oxygen using mechanical pumps according to an analytical function, which is defined
+    between 10<sup>-6</sup> bar and 0.7 bar total pressure (=oxygen partial pressure in
+    this case) with an operating temperature of the pump of 200 °C. The value defined by
+    the mechanical envelope may be undercut at low oxygen partial pressures <a
+    href="https://www.sciencedirect.com/science/article/pii/S0038092X18304961">using
+    thermochemical pumps</a> as an alternative. Sweep gas operation cannot be modelled
+    using our approach.</li>
+<li><strong>Steam Generation:</strong> This value is only displayed if water splitting is selected as
+    process type. It refers to the energy required to heat steam to the oxidation
+    temperature of the redox material. The inlet temperature of the steam generator can be
+    defined. If it is below 100 °C, the heat of evaporation (40.79 kJ/mol) and the energy
+    required to heat liquid water to its boiling point are considered. The heat capacities
+    for water and steam are calculated using data from the <a
+    href="https://janaf.nist.gov/">NIST-JANAF thermochemical tables</a>. For water
+    splitting, a lower ratio of H<sub>2</sub> vs. H<sub>2</sub>O in the product stream
+    increases the amount of energy required for steam generation significantly, as more
+    water needs to be heated up to generate the same amount of hydrogen.  It is also
+    possible to define a heat recovery efficiency from steam, which may be different from
+    the heat recovery efficiency from the solid.</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>Data source:</strong> Select experimental or theoretical data. Please note that experimental
+    data may be inaccurate outside the window of process conditions set by our measurement
+    (400-1200 °C, 10<sup>-4</sup>-0.9 bar p<sub>O2</sub> in most cases).</li>
+<li><strong>Process type:</strong> Air Separation, Water Splitting, CO<sub>2</sub> Splitting. Please
+    note that if experimental data is selected, only Air Separation can be chosen. This is
+    intended - we did not study materials experimentally which are capable of water or
+    CO<sub>2</sub> splitting.</li>
+<li><strong>Display parameters:</strong> The materials can be ranked by different parameters, including
+    energy per mol of material or per mol of product. The heat to fuel efficiency for
+    water splitting is defined as the <a href="https://h2tools.org/node/3131">higher
+    heating value of hydrogen</a> divided by the total heat input + pumping energy. It
+    does not account for any losses. Practical total efficiencies are therefore always
+    lower than the displayed value.</li>
+<li><strong>Amount of materials to display:</strong> The amount of materials displayed can be changed to
+    get a better overview.</li>
+</ul>
+<h2 id="using-the-results-for-materials-selection">Using the results for materials selection<a class="headerlink" href="#using-the-results-for-materials-selection" title="Permanent link">&para;</a></h2>
+<p>Although the <i>RedoxThermoCSP</i> tools yield a rich dataset with profound physical and
+chemical background, it is important to consider its limitations. Any theoretical dataset
+is only as good as the theory behind it, and fitted experimental data may be biased by the
+fitting method. In general, we want these tools to serve as a method of materials
+pre-selection. The theoretical data cannot replace experiments, but it will significantly
+reduce the amount of materials to investigate experimentally and increase the success rate
+of experiments.</p>
+<p>Our materials screening method predicts some materials which are likely to be unstable. We
+excluded those materials in the <i>Energy Analysis</i> section, but this data is still
+available to plot <i>Isographs</i>, and more information can be found in the accompanying
+publications. We excluded 36 materials out of the &gt;200 theoretical datasets for the
+following reasons:</p>
+<ul>
+<li><strong>tolerance factor &lt; 0.9:</strong> Experiments performed in our labs have shown that
+    EuFeO<sub>3-δ</sub> is a stable perovskite, whereas EuCuO<sub>3-δ</sub> could not be
+    synthesized due to its tolerance factor of about 0.88 (Cu<sup>3+</sup> ions have a too
+    large ionic radius).</li>
+<li><strong>Covalent V-O bonds:</strong> Compounds such as NaVO<sub>3</sub> are stable, but those are not
+    perovskite-structured. Due to the high covalency of the V-O bond in those cases, they
+    form salt like structures with vanadate anions. Therefore, we exclude all compounds with
+    V<sup>5+</sup> cations in the lattice.</li>
+<li><strong>Low melting points (alkali molybdenates):</strong> Some compounds form perovskites and
+    similar structures, but they have melting points of only a few hundred degrees
+    centrigrade, making them not useful for most thermochemical applications. Moreover, it
+    is not reasonable to calculate properties like the oxygen non-stoichiometry for these
+    compounds, at least not the way we treat solids. One example is sodium molybenate, and
+    therefore exclude all compounds containing Mo<sup>5+</sup> cations<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup>.</li>
+</ul>
+<p>This list is by no means complete, most of the perovskite solid solutions we suggest have
+never been systhesized. However, with some understanding of perovskite chemistry and using
+literature on similar phases, it should be possible to get a good estimate on the
+stability of a suggested phase.<br> Moreover, one can also search these phases in <i>The
+Materials Project</i> and find the so-called energy above hull. This is the DFT-calculated
+energy difference between this phase and the most stable phase(s) containing the same
+elements. In principle, if this energy is above 0, it means that the phase is metastable
+according to DFT and may eventually decompose. However, some of these phases have been
+synthesiszed and are stable, so this value just gives a first indication.</p>
+<p>Finally, kinetic limitations also play a role, which are completely neglected herein, as
+DFT calculations are performed for a temperature of 0 K. Especially at low temperatures
+(below 350-600 °C), the phase may never be oxidized to the level predicted by
+thermodynamic calculations. Therefore, one should be especially careful when looking for
+materials to be applied in this temperature range, especially if they have very low redox
+enthalpies (chemical energy per mol of redox material).</p>
+<p><b>This checklist may be helpful to evaluate whether a material suggested in the <i>Energy
+Analysis</i> section is actually a good choice:</b></p>
+<ul>
+<li>Is the phase a stable perovskite (ionic structure)? What are its expected physical
+    properties (compare literature on similar phases)?</li>
+<li>May the oxidation reaction be kinetically limited? Check if the oxidation temperature is
+    high enough. Most perovskites require 350-600 °C to show appreciable oxidation rates.</li>
+<li>Is the energy above hull exceptionally large? Is the predicted redox enthalpy
+    reasonable? Check the materials on <i>The Materials Project</i> in terms of the energy
+    above hull (-&gt; "Explore Materials" on The Materials Project) and in terms of the redox
+    enthalpy (-&gt; "Calculate Reaction")</li>
+</ul>
+<p>That being said, we believe that <i>RedoxThermoCSP</i> will make it a lot easier to find
+perovskite materials for thermochemical applications. Enjoy using it and feel free to use
+the data for your research! Our journal publications (see below) must be attributed.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>J. Vieten, B. Bulfin, P. Huck, M. Horton, D. Guban, L. Zhu, Youjun L., K. A.
+Persson, M. Roeb, C. Sattler (2019). "Materials design of perovskite solid solutions
+for thermochemical applications" <strong>Energy &amp; Environmental Science</strong> (accepted
+article), <a href="http://dx.doi.org/10.1039/C9EE00085B">10.1039/C9EE00085B</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>J. Vieten et al. (2019). "Redox behavior of solid solutions in the
+SrFe<sub>1-x</sub>Cu<sub>x</sub>O<sub>3-δ</sub> system for application in
+thermochemical oxygen storage and air separation" <strong>Energy Technology</strong> 7(1):
+131-139., <a href="http://dx.doi.org/10.1002/ente.201800554">10.1002/ente.201800554</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>J. Vieten, B. Bulfin, M. Senholdt, M. Roeb, C. Sattler, M. Schmücker (2017). "Redox
+  thermodynamics and phase composition in the system SrFeO3−δ — SrMnO3−δ." <strong>Solid State
+  Ionics 308</strong>: 149-155., <a href="https://doi.org/10.1016/j.ssi.2017.06.014">10.1016/j.ssi.2017.06.014</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>B. Bulfin, L. Hoffmann, L. de Oliveira, N. Knoblauch, F. Call, M. Roeb, C. Sattler,
+  M. Schmücker (2016). "Statistical thermodynamics of non-stoichiometric ceria and ceria
+  zirconia solid solutions" <strong>Physical Chemistry Chemical Physics 18</strong>(33):
+  23147-23154., <a href="http://dx.doi.org/10.1039/c6cp03158g">10.1039/c6cp03158g</a>&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>K. Eda, K. Furusawa, F. Hatayama, S. Takagi, N. Sotani (1991). "Formation of
+  Na<sub>0.9</sub>Mo<sub>6</sub>O<sub>17</sub> in a Solid-Phase Process. Transformations
+  of a Hydrated Soldium Molybdenum Bronze,
+  Na<sub>0.23</sub>(H<sub>2</sub>O)<sub>0.78</sub>MoO<sub>3</sub>, with Heat Treatments in
+  a Nitrogen Atmosphere" <u>Bull. Chem. Soc. Jpn.</u> <b>64</b>(99): 161-164., <a
+  href="http://dx.doi.org/10.1246/bcsj.64.161">DOI: 10.1246/bcsj.64.161</a>&#160;<a class="footnote-backref" href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../portal/" title="Portal" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Portal
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ingester/" title="Ingester" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Ingester
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 Materials Project
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/materialsproject" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/persson_group" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/tschaume" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
